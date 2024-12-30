@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: 2px solid #0056b3;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            border-color: #003d80;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Feedback Form</h2>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdL00000FMGFD"
+            method="POST">
+            <input type="hidden" name="oid" value="00DdL00000FMGFD">
+            <input type="hidden" name="retURL" value="http://google.com">
+
+            <label for="00NdL00000BPPUj">Booking ID:</label>
+            <input id="00NdL00000BPPUj" maxlength="50" name="00NdL00000BPPUj" size="20" type="text" required readonly>
+
+            <label for="00NdL00000BPPXx">Feedback:</label>
+            <textarea id="00NdL00000BPPXx" name="00NdL00000BPPXx" type="text" wrap="soft" required></textarea>
+
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        // Extract query parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Get the Booking ID if it exists
+        const bookingId = params.get('bookingId');
+
+        // If a Booking ID exists in the URL, pre-fill the input field
+        if (bookingId) {
+            document.getElementById('00NdL00000BPPUj').value = bookingId;
+        }
+    </script>
+</body>
+
+</html>
